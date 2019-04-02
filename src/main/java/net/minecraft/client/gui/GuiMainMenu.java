@@ -3,6 +3,7 @@ package net.minecraft.client.gui;
 import com.envyclient.core.impl.guiscreen.AltLogin;
 import com.envyclient.core.util.PlayerUtils;
 import com.envyclient.core.util.Timer;
+import com.envyclient.core.util.render.FontUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
@@ -13,6 +14,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static com.envyclient.core.Envy.Colors.MAIN;
+import static com.envyclient.core.Envy.Info.UPDATE_TEXT;
+import static com.envyclient.core.Envy.Info.ISSUES_TEXT;
 
 public class GuiMainMenu extends GuiScreen implements GuiYesNoCallback {
 
@@ -61,6 +64,10 @@ public class GuiMainMenu extends GuiScreen implements GuiYesNoCallback {
         int lineSize = sr.getScaledHeight() / 5 - 15;
         drawGradientRect(width / 2 - 1, ((height - lineSize) / 2 + lineSize / 2) - lineSize, width / 2 + 1, ((height - lineSize) / 2 + lineSize / 2), new Color(0, 255, 0, 0).getRGB(), MAIN);
         drawGradientRect(width / 2 - 1, ((height - lineSize) / 2 + lineSize / 2), width / 2 + 1, ((height - lineSize) / 2 + lineSize / 2) + lineSize, MAIN, new Color(0, 255, 0, 0).getRGB());
+
+        // update text string
+        fontRendererObj.drawString(UPDATE_TEXT, 5, height - (FontUtils.getFontHeight() * 2) - 2, -1);
+        fontRendererObj.drawString(ISSUES_TEXT, 5, height - FontUtils.getFontHeight() - 2, -1);
 
         GL11.glDisable(GL11.GL_BLEND);
         GL11.glPopMatrix();

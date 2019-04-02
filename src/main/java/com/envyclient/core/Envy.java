@@ -5,6 +5,10 @@ import com.boxysystems.jgoogleanalytics.JGoogleAnalyticsTracker;
 import com.envyclient.core.impl.managers.*;
 import com.envyclient.core.util.Loader;
 import com.envyclient.core.util.ReflectionUtils;
+import com.envyclient.core.util.web.Callback;
+import com.envyclient.core.util.web.WebUtils;
+import com.google.gson.JsonArray;
+import com.mojang.realmsclient.gui.ChatFormatting;
 import me.ihaq.eventmanager.EventManager;
 import me.ihaq.imguruploader.ImgurUploader;
 import org.lwjgl.opengl.Display;
@@ -29,13 +33,44 @@ public class Envy implements Loader {
     }
 
     public static class Info implements Loader {
-
         public static final String NAME = "Envy";
         public static final double VERSION = 4.2;
+
+        public static String UPDATE_TEXT = "";
+        public static String ISSUES_TEXT = "";
 
         @Override
         public void enable() {
             Display.setTitle(NAME + " v" + VERSION);
+
+            WebUtils.getLatestVersion(new Callback<Double>() {
+                @Override
+                public void onSuccess(Double e) {
+                    if (e > VERSION) {
+                        UPDATE_TEXT = ChatFormatting.RED + "Outdated" + ChatFormatting.RESET + " version.";
+                    } else {
+                        UPDATE_TEXT = ChatFormatting.GREEN + "Latest" + ChatFormatting.RESET + " version.";
+                    }
+                }
+
+                @Override
+                public void onFail(Exception e) {
+                    UPDATE_TEXT = ChatFormatting.GRAY + "Could not determine latest version.";
+                }
+            });
+
+            WebUtils.getIssues(new Callback<JsonArray>() {
+                @Override
+                public void onSuccess(JsonArray e) {
+                    ISSUES_TEXT = NAME + " currently has " + ChatFormatting.YELLOW + e.size() + ChatFormatting.RESET + " issue(s).";
+                }
+
+                @Override
+                public void onFail(Exception e) {
+                    ISSUES_TEXT = ChatFormatting.GRAY + "Could not determine the amount of issues with " + NAME + ".";
+                }
+            });
+
         }
     }
 
@@ -65,7 +100,6 @@ public class Envy implements Loader {
     }
 
     public static class Managers implements Loader {
-
         public static final EventManager EVENT = new EventManager();
         public static final FriendManager FRIEND = new FriendManager();
 
