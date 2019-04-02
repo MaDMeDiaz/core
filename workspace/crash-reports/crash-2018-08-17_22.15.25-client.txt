@@ -1,0 +1,88 @@
+---- Minecraft Crash Report ----
+// My bad.
+
+Time: 17/08/18 10:15 PM
+Description: Initializing game
+
+java.lang.ArrayIndexOutOfBoundsException: 0
+	at java.util.concurrent.CopyOnWriteArrayList.get(CopyOnWriteArrayList.java:388)
+	at java.util.concurrent.CopyOnWriteArrayList.get(CopyOnWriteArrayList.java:397)
+	at com.envyclient.core.impl.managers.ClickGUIManager$Console.<init>(ClickGUIManager.java:55)
+	at com.envyclient.core.impl.managers.ClickGUIManager.enable(ClickGUIManager.java:23)
+	at com.envyclient.core.util.ReflectionUtils.lambda$invokeLoader$0(ReflectionUtils.java:22)
+	at java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:948)
+	at java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:580)
+	at com.envyclient.core.util.ReflectionUtils.invokeLoader(ReflectionUtils.java:14)
+	at com.envyclient.core.Envy$Managers.enable(Envy.java:149)
+	at java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:948)
+	at java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:580)
+	at com.envyclient.core.Envy.enable(Envy.java:33)
+	at net.minecraft.client.Minecraft.startGame(Minecraft.java:532)
+	at net.minecraft.client.Minecraft.run(Minecraft.java:371)
+	at net.minecraft.client.main.Main.main(Main.java:103)
+	at net.minecraft.Start.main(Start.java:10)
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Stacktrace:
+	at java.util.concurrent.CopyOnWriteArrayList.get(CopyOnWriteArrayList.java:388)
+	at java.util.concurrent.CopyOnWriteArrayList.get(CopyOnWriteArrayList.java:397)
+	at com.envyclient.core.impl.managers.ClickGUIManager$Console.<init>(ClickGUIManager.java:55)
+	at com.envyclient.core.impl.managers.ClickGUIManager.enable(ClickGUIManager.java:23)
+	at com.envyclient.core.util.ReflectionUtils.lambda$invokeLoader$0(ReflectionUtils.java:22)
+	at java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:948)
+	at java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:580)
+	at com.envyclient.core.util.ReflectionUtils.invokeLoader(ReflectionUtils.java:14)
+	at com.envyclient.core.Envy$Managers.enable(Envy.java:149)
+	at java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:948)
+	at java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:580)
+	at com.envyclient.core.Envy.enable(Envy.java:33)
+	at net.minecraft.client.Minecraft.startGame(Minecraft.java:532)
+
+-- Initialization --
+Details:
+Stacktrace:
+	at net.minecraft.client.Minecraft.run(Minecraft.java:371)
+	at net.minecraft.client.main.Main.main(Main.java:103)
+	at net.minecraft.Start.main(Start.java:10)
+
+-- System Details --
+Details:
+	Minecraft Version: 1.8.8
+	Operating System: Windows 10 (amd64) version 10.0
+	CPU: 8x Intel(R) Core(TM) i7-4790K CPU @ 4.00GHz
+	Java Version: 1.8.0_181, Oracle Corporation
+	Java VM Version: Java HotSpot(TM) 64-Bit Server VM (mixed mode), Oracle Corporation
+	Memory: 603808840 bytes (575 MB) / 708837376 bytes (676 MB) up to 3801088000 bytes (3625 MB)
+	JVM Flags: 0 total; 
+	IntCache: cache: 0, tcache: 0, allocated: 0, tallocated: 0
+	Launched Version: mcp
+	LWJGL: 2.9.4
+	OpenGL: GeForce GTX 970/PCIe/SSE2 GL version 4.6.0 NVIDIA 398.82, NVIDIA Corporation
+	GL Caps: Using GL 1.3 multitexturing.
+Using GL 1.3 texture combiners.
+Using framebuffer objects because OpenGL 3.0 is supported and separate blending is supported.
+Shaders are available because OpenGL 2.1 is supported.
+VBOs are available because OpenGL 1.5 is supported.
+
+	Using VBOs: No
+	Is Modded: Very likely; Jar signature invalidated
+	Type: Client (map_client.txt)
+	Resource Packs: faithful64pack-v1.4.0 - LOWFIRE.zip
+	Current Language: English (US)
+	Profiler Position: N/A (disabled)
+	CPU: 8x Intel(R) Core(TM) i7-4790K CPU @ 4.00GHz
+	OptiFine Version: OptiFine_1.8.8_HD_U_H8
+	Render Distance Chunks: 8
+	Mipmaps: 4
+	Anisotropic Filtering: 1
+	Antialiasing: 0
+	Multitexture: false
+	Shaders: null
+	OpenGlVersion: 4.6.0 NVIDIA 398.82
+	OpenGlRenderer: GeForce GTX 970/PCIe/SSE2
+	OpenGlVendor: NVIDIA Corporation
+	CpuCount: 8

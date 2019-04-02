@@ -1,0 +1,38 @@
+[
+  {
+    "name": "Console",
+    "x": 112.0,
+    "y": 204.0,
+    "open": true
+  },
+  {
+    "name": "Combat",
+    "x": 567.0,
+    "y": 81.0,
+    "open": true
+  },
+  {
+    "name": "Movement",
+    "x": 720.0,
+    "y": 75.0,
+    "open": true
+  },
+  {
+    "name": "Render",
+    "x": 736.0,
+    "y": 147.0,
+    "open": true
+  },
+  {
+    "name": "Player",
+    "x": 524.0,
+    "y": 203.0,
+    "open": true
+  },
+  {
+    "name": "World",
+    "x": 237.0,
+    "y": 126.0,
+    "open": true
+  }
+]

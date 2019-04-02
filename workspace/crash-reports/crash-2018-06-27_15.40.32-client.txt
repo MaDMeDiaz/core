@@ -1,0 +1,94 @@
+---- Minecraft Crash Report ----
+// Ooh. Shiny.
+
+Time: 27/06/18 3:40 PM
+Description: Initializing game
+
+java.lang.NullPointerException: Initializing game
+	at com.envyclient.core.api.module.Module.sendMessage(Module.java:81)
+	at com.envyclient.core.api.module.Module.onEnable(Module.java:50)
+	at com.envyclient.core.api.module.Module.toggle(Module.java:88)
+	at com.envyclient.core.util.GsonUtils.lambda$loadModuleData$2(GsonUtils.java:66)
+	at java.lang.Iterable.forEach(Iterable.java:75)
+	at com.envyclient.core.util.GsonUtils.loadModuleData(GsonUtils.java:31)
+	at com.envyclient.core.impl.files.ModulesFile.loadFile(ModulesFile.java:22)
+	at com.envyclient.core.impl.managers.CustomFileManager.enable(CustomFileManager.java:33)
+	at com.envyclient.core.Envy$Managers.lambda$enable$0(Envy.java:108)
+	at java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:948)
+	at java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:580)
+	at com.envyclient.core.Envy$Managers.enable(Envy.java:101)
+	at java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:948)
+	at java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:580)
+	at com.envyclient.core.Envy.enable(Envy.java:22)
+	at net.minecraft.client.Minecraft.startGame(Minecraft.java:529)
+	at net.minecraft.client.Minecraft.run(Minecraft.java:368)
+	at net.minecraft.client.main.Main.main(Main.java:103)
+	at net.minecraft.Start.main(Start.java:10)
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Stacktrace:
+	at com.envyclient.core.api.module.Module.sendMessage(Module.java:81)
+	at com.envyclient.core.api.module.Module.onEnable(Module.java:50)
+	at com.envyclient.core.api.module.Module.toggle(Module.java:88)
+	at com.envyclient.core.util.GsonUtils.lambda$loadModuleData$2(GsonUtils.java:66)
+	at java.lang.Iterable.forEach(Iterable.java:75)
+	at com.envyclient.core.util.GsonUtils.loadModuleData(GsonUtils.java:31)
+	at com.envyclient.core.impl.files.ModulesFile.loadFile(ModulesFile.java:22)
+	at com.envyclient.core.impl.managers.CustomFileManager.enable(CustomFileManager.java:33)
+	at com.envyclient.core.Envy$Managers.lambda$enable$0(Envy.java:108)
+	at java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:948)
+	at java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:580)
+	at com.envyclient.core.Envy$Managers.enable(Envy.java:101)
+	at java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:948)
+	at java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:580)
+	at com.envyclient.core.Envy.enable(Envy.java:22)
+	at net.minecraft.client.Minecraft.startGame(Minecraft.java:529)
+
+-- Initialization --
+Details:
+Stacktrace:
+	at net.minecraft.client.Minecraft.run(Minecraft.java:368)
+	at net.minecraft.client.main.Main.main(Main.java:103)
+	at net.minecraft.Start.main(Start.java:10)
+
+-- System Details --
+Details:
+	Minecraft Version: 1.8.8
+	Operating System: Windows 10 (amd64) version 10.0
+	CPU: 8x Intel(R) Core(TM) i7-4790K CPU @ 4.00GHz
+	Java Version: 1.8.0_171, Oracle Corporation
+	Java VM Version: Java HotSpot(TM) 64-Bit Server VM (mixed mode), Oracle Corporation
+	Memory: 191926264 bytes (183 MB) / 414187520 bytes (395 MB) up to 3801088000 bytes (3625 MB)
+	JVM Flags: 0 total; 
+	IntCache: cache: 0, tcache: 0, allocated: 0, tallocated: 0
+	Launched Version: mcp
+	LWJGL: 2.9.4
+	OpenGL: GeForce GTX 970/PCIe/SSE2 GL version 4.6.0 NVIDIA 398.11, NVIDIA Corporation
+	GL Caps: Using GL 1.3 multitexturing.
+Using GL 1.3 texture combiners.
+Using framebuffer objects because OpenGL 3.0 is supported and separate blending is supported.
+Shaders are available because OpenGL 2.1 is supported.
+VBOs are available because OpenGL 1.5 is supported.
+
+	Using VBOs: No
+	Is Modded: Very likely; Jar signature invalidated
+	Type: Client (map_client.txt)
+	Resource Packs: 
+	Current Language: English (US)
+	Profiler Position: N/A (disabled)
+	CPU: 8x Intel(R) Core(TM) i7-4790K CPU @ 4.00GHz
+	OptiFine Version: OptiFine_1.8.8_HD_U_H8
+	Render Distance Chunks: 5
+	Mipmaps: 4
+	Anisotropic Filtering: 1
+	Antialiasing: 0
+	Multitexture: false
+	Shaders: null
+	OpenGlVersion: 4.6.0 NVIDIA 398.11
+	OpenGlRenderer: GeForce GTX 970/PCIe/SSE2
+	OpenGlVendor: NVIDIA Corporation
+	CpuCount: 8

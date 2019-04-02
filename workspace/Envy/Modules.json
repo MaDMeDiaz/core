@@ -1,0 +1,40 @@
+[
+  {
+    "name": "Hud",
+    "toggled": true,
+    "key": 0,
+    "settings": [
+      {
+        "name": "ArrayList",
+        "value": true
+      },
+      {
+        "name": "PotionEffects",
+        "value": true
+      },
+      {
+        "name": "Armor",
+        "value": true
+      },
+      {
+        "name": "TabGui",
+        "value": true
+      }
+    ]
+  },
+  {
+    "name": "MCF",
+    "toggled": true,
+    "key": 0
+  },
+  {
+    "name": "ClickGUI",
+    "toggled": false,
+    "key": 54
+  },
+  {
+    "name": "Screenshot",
+    "toggled": true,
+    "key": 0
+  }
+]
