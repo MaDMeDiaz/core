@@ -1,3 +1,5 @@
+[![Build Status](https://dev.azure.com/envy-client/core/_apis/build/status/envyclient.core?branchName=master)](https://dev.azure.com/envy-client/core/_build/latest?definitionId=2&branchName=master)
+
 # core
 The core of Envy Client.
 
