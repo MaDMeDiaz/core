@@ -24,3 +24,35 @@ steps:
 - script: |
     mvn clean install
   displayName: 'mvn clean and install'
+  
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: '$(System.DefaultWorkingDirectory)/target'
+    Contents: 'client.jar'
+    TargetFolder: '$(System.DefaultWorkingDirectory)/proguard'
+    
+- task: PythonScript@0
+  inputs:
+    scriptSource: 'filePath'
+    scriptPath: '$(System.DefaultWorkingDirectory)/proguard/gen_random.py'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/proguard'
+
+- task: Bash@3
+  inputs:
+    targetType: 'inline'
+    script: 'java -jar proguard.jar @envy-config'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/proguard'
+
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: '$(System.DefaultWorkingDirectory)/proguard/Envy'
+    Contents: '**'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+    CleanTargetFolder: true
+    OverWrite: true
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
