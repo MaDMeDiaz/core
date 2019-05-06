@@ -66,7 +66,6 @@ public class AltLogin extends GuiScreen {
 
     }
 
-
     @Override
     public void drawScreen(int mouseX, int mouseY, float partialTicks) {
 

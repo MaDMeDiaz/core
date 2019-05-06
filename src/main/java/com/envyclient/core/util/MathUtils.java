@@ -9,7 +9,6 @@ public class MathUtils {
     }
 
     public static double roundToPlace(double value, int places) {
-
         if (places < 0) {
             throw new IllegalArgumentException();
         }

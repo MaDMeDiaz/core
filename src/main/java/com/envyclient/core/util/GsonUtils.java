@@ -29,10 +29,6 @@ public class GsonUtils {
     private GsonUtils() {
     }
 
-    public static boolean loadModuleData(String data) {
-        return loadModuleData(toJsonArray(data));
-    }
-
     public static boolean loadModuleData(JsonArray modulesArray) {
 
         if (modulesArray == null) {

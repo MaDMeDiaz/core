@@ -39,12 +39,9 @@ public class PlayerUtils {
     }
 
     public static boolean onSameTeam(Entity entity) {
-        if (entity instanceof EntityPlayer
+        return entity instanceof EntityPlayer
                 && PlayerUtils.getTabName((EntityPlayer) entity).length() > 2
-                && PlayerUtils.getTabName(mc.thePlayer).startsWith(PlayerUtils.getTabName((EntityPlayer) entity).substring(0, 2))) {
-            return true;
-        }
-        return false;
+                && PlayerUtils.getTabName(mc.thePlayer).startsWith(PlayerUtils.getTabName((EntityPlayer) entity).substring(0, 2));
     }
 
     public static void sendConsoleReply(String message) {

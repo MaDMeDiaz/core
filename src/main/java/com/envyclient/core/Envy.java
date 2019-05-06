@@ -4,7 +4,6 @@ import com.boxysystems.jgoogleanalytics.FocusPoint;
 import com.boxysystems.jgoogleanalytics.JGoogleAnalyticsTracker;
 import com.envyclient.core.impl.managers.*;
 import com.envyclient.core.util.Loader;
-import com.envyclient.core.util.ReflectionUtils;
 import com.envyclient.core.util.web.Callback;
 import com.envyclient.core.util.web.WebUtils;
 import com.google.gson.JsonArray;
@@ -20,7 +19,11 @@ import java.util.concurrent.Executors;
 
 public class Envy implements Loader {
 
-    private static final Loader[] loaders = new Loader[]{new Info(), new ThirdParty(), new Managers()};
+    private static final Loader[] loaders = new Loader[]{
+            new Info(),
+            new ThirdParty(),
+            new Managers()
+    };
 
     @Override
     public void enable() {
@@ -111,12 +114,33 @@ public class Envy implements Loader {
 
         @Override
         public void enable() {
-            ReflectionUtils.invokeLoader(getClass(), this, true);
+            invokeLoader(getClass(), this, true);
         }
 
         @Override
         public void disable() {
-            ReflectionUtils.invokeLoader(getClass(), this, false);
+            invokeLoader(getClass(), this, false);
+        }
+
+        private static void invokeLoader(Class clazz, Object parent, boolean enable) {
+            Arrays.stream(clazz.getDeclaredFields()).forEach(field -> {
+                try {
+
+                    field.setAccessible(true);
+
+                    Object obj = field.get(parent);
+                    if (obj instanceof Loader) {
+                        if (enable) {
+                            ((Loader) obj).enable();
+                        } else {
+                            ((Loader) obj).disable();
+                        }
+                    }
+
+                } catch (IllegalAccessException e) {
+                    e.printStackTrace();
+                }
+            });
         }
     }
 
